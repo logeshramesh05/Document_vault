@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: document-vault-app
+
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    ports:
+      - "4000:4000"
+
+    command: ["sh", "-c", "bunx prisma migrate deploy && bun run src/index.ts"]
