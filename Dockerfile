@@ -17,7 +17,7 @@ RUN bunx prisma generate
 # Copy application source
 COPY . .
 
-EXPOSE 4000
+EXPOSE 10000
 
 # Apply migrations and start GraphQL server
 CMD ["sh", "-c", "bunx prisma migrate deploy && bun run src/index.ts"]
